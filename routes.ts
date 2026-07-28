@@ -1,11 +1,15 @@
+import type { AppRoute } from "@/core/types";
+import { ROUTES } from "@/constants/routes";
+
 /**
- * Routes principales de Kyrus Studio.
+ * Routes de base du Core.
  * Les modules métier (Landing, Auth, Dashboard, ...) enregistreront
  * leurs propres routes dans leurs lots respectifs.
  */
-
-export const ROUTES = {
-  HOME: "/",
-} as const;
-
-export type RouteKey = keyof typeof ROUTES;
+export const coreRoutes: AppRoute[] = [
+  {
+    path: ROUTES.HOME,
+    element: null,
+    isProtected: false,
+  },
+];
