@@ -1,23 +1,40 @@
-# Core — Kyrus Studio
+# Design System — Kyrus Studio
 
-Module technique central (MOD-0002).
+Module MOD-0003 — Bibliothèque officielle de composants réutilisables.
 
-## Contenu du LOT-002
+## Contenu du LOT-003
 
-- **router/** — Routeur principal, garde de routes génériques (`ProtectedRoute`, `PublicRoute`)
-- **hooks/** — `useTheme`, `useAnimation`, `useFlame`, `useAura`
-- **services/** — `storageService`, `themeService`, `loggerService`, `configService`
-- **utils/** — chaînes, objets, dates, validation
-- **types/** — types partagés du Core
+| Composant | ID Catalogue |
+|-----------|--------------|
+| Button | COMP-0101 |
+| Input | COMP-0201 |
+| Card | COMP-0301 |
+| Typography | — |
+| Container | COMP-0401 |
+| Icon | COMP-0307 |
+| Loader | COMP-0603 |
+| Badge | COMP-0302 |
+| Divider | COMP-0306 |
+| Avatar | COMP-0303 |
+| Tooltip | COMP-0703 |
+| Modal | COMP-0701 |
+
+## Fondations du module
+
+- `tokens.ts` — Design Tokens (couleurs, typographie, espacements, ombres), construits à partir des constantes officielles de Foundation.
+- `theme.ts` — Thème du Design System.
+- `animations.ts` — Animations communes (fade, scale, pulsation de la lueur bleue).
 
 ## Règle de dépendance
 
-Conformément à `MODULE_DEPENDENCY_GRAPH.md`, le Core ne dépend que de **Foundation**.
-Il ne dépend jamais de Authentication, Dashboard, Marketplace ou Payments.
+Conformément à `MODULE_DEPENDENCY_GRAPH.md`, le Design System ne dépend que de **Foundation** et **Core**.
 
-Les gardes de route (`ProtectedRoute`, `PublicRoute`) sont donc **agnostiques** :
-la condition d'accès (`isAllowed`) est fournie par le module appelant.
+## Utilisation
+
+```tsx
+import { Button, Card, Typography } from "@/design-system";
+```
 
 ## Statut
 
-Aucune fonctionnalité métier n'est présente dans ce lot.
+Tous les composants sont réutilisables et héritent automatiquement des tokens visuels officiels.
